@@ -3,7 +3,8 @@
 import { useState, useEffect } from "react"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { ArrowDown, Github, Linkedin, MapPin } from "lucide-react"
+import { ArrowDown, Github, Mail, MapPin } from "lucide-react"
+import Image from "next/image"
 
 export function HeroSection() {
   const [showCursor, setShowCursor] = useState(true)
@@ -26,9 +27,20 @@ export function HeroSection() {
           <div className="flex-shrink-0">
             <div className="relative">
               <div className="w-48 h-48 md:w-56 md:h-56 rounded-full bg-gradient-to-br from-cyan-500/20 to-cyan-500/5 border-2 border-cyan-500/30 flex items-center justify-center overflow-hidden">
+                <div className="w-44 h-44 md:w-52 md:h-52 rounded-full border border-border overflow-hidden">
+                  <Image
+                    src="/soo-about-2.JPG"
+                    alt="profile"
+                    width={208}
+                    height={208}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                {/* Default Settings
                 <div className="w-44 h-44 md:w-52 md:h-52 rounded-full bg-card/80 border border-border flex items-center justify-center">
                   <span className="text-6xl md:text-7xl font-bold text-cyan-400/80">T</span>
                 </div>
+                */}
               </div>
               <div className="absolute -bottom-2 -right-2 bg-card border border-cyan-500/30 rounded-full p-2">
                 <span className="w-3 h-3 bg-emerald-400 rounded-full block animate-pulse" />
@@ -47,21 +59,22 @@ export function HeroSection() {
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-balance">
               Hi, I&apos;m{" "}
-              <span className="text-cyan-400">littledogtomsky</span>
+              <span className="text-cyan-400">Soo Young!</span>
             </h1>
 
             <p className="text-xl md:text-2xl text-muted-foreground mb-2">
-              Cloud-Focused Software Developer
+              {/*Subtitles*/}
+              {/*Cloud-Focused Software Developer*/}
             </p>
 
             <div className="flex items-center gap-2 text-muted-foreground mb-6 justify-center lg:justify-start">
               <MapPin className="h-4 w-4" />
-              <span>London, UK</span>
+              <span>United Kingdom & South Korea</span>
             </div>
 
             <p className="text-base md:text-lg text-muted-foreground mb-8 max-w-xl leading-relaxed">
-              I build and deploy Python applications on AWS infrastructure. Currently rebuilding 
-              my portfolio from Flask to React/FastAPI with Docker, CloudFront, and GitHub Actions.
+              I build and deploy Python applications on AWS infrastructure. <br />
+              This portfolio runs on React/FastAPI with Docker, CloudFront, and GitHub Actions.
             </p>
 
             {/* Terminal snippet */}
@@ -74,18 +87,27 @@ export function HeroSection() {
               <div className="text-cyan-400">
                 $ whoami{showCursor && <span className="ml-1 bg-cyan-400 text-background px-0.5">_</span>}
               </div>
-              <div className="text-muted-foreground pl-2 mt-1">cloud-focused software developer</div>
-            </div>
+              <div className="text-muted-foreground pl-2 mt-1">automates systems with Python & AWS</div>
+              
+              <div className="text-cyan-400 mt-3">
+                $ why{showCursor && <span className="ml-1 bg-cyan-400 text-background px-0.5">_</span>}
+              </div>
+              <div className="text-muted-foreground pl-2 mt-1">reliability & productivity</div>
+            </div>  
 
             <div className="flex flex-wrap gap-4 justify-center lg:justify-start mb-8">
-              <Button size="lg" className="bg-cyan-600 hover:bg-cyan-700 text-white">
-                <Github className="mr-2 h-5 w-5" />
-                View GitHub
-              </Button>
-              <Button size="lg" variant="outline" className="border-border hover:bg-card">
-                <Linkedin className="mr-2 h-5 w-5" />
-                Connect
-              </Button>
+              <a href="https://github.com/MyDogTomsky" target="_blank" rel="noopener noreferrer">
+                <Button size="lg" className="bg-cyan-600 hover:bg-cyan-700 text-white">
+                  <Github className="mr-2 h-5 w-5" />
+                  View GitHub
+                </Button>
+              </a>
+              <a href="mailto:youngandtom2@gmail.com">
+                <Button size="lg" className="bg-cyan-600 hover:bg-cyan-700 text-white w-full sm:w-auto">
+                  <Mail className="mr-2 h-5 w-5" />
+                  E-mail
+                </Button>
+              </a>
             </div>
           </div>
         </div>

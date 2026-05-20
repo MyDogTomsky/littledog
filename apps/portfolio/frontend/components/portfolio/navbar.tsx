@@ -3,10 +3,11 @@
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
+import Image from "next/image"
 
 const navItems = [
   { label: "Skills", href: "#skills" },
-  { label: "Live Demo", href: "#live-demo" },
+  { label: "Observability", href: "#observability" },
   { label: "Projects", href: "#projects" },
   { label: "Contact", href: "#contact" },
 ]
@@ -20,9 +21,16 @@ export function Navbar() {
         <div className="flex items-center justify-between h-16">
           <a href="#hero" className="flex items-center gap-2 font-bold text-lg">
             <div className="w-8 h-8 rounded-full bg-gradient-to-br from-cyan-500/20 to-cyan-500/5 border border-cyan-500/30 flex items-center justify-center overflow-hidden">
-              <span className="text-sm font-bold text-cyan-400">🐕</span>
+              <Image
+                src="/tommy-cuttos.png"
+                alt="logo"
+                width={32}
+                height={32}
+                className="w-full h-full object-cover" />
+              {/* default icon
+              <span className="text-sm font-bold text-cyan-400">🐕</span>*/}
             </div>
-            <span><span className="text-cyan-400">littledog</span>tomsky</span>
+            <span><span className="text-cyan-400">littledogtomsky.com | </span>Built by Soo </span>
           </a>
 
           {/* Desktop Navigation */}

@@ -1,0 +1,30 @@
+# set margin 
+
+mt-3 
+(12px)
+mt-1(4px), mt-2(8px), mt-3(12px), mt-4(16px) 
+
+# when fetching images
+
+import Image from "next/image"     => static
+
+<Image
+                    src="/soo-about-2.JPG"
+                    alt="profile"
+                    width={208}
+                    height={208}
+                    className="w-full h-full object-cover"
+                  />
+                                    
+                                    => external link
+<img
+                    src={weather.image}
+                    alt={weather.city}
+                    className="w-full h-full object-cover"
+                    crossOrigin="anonymous"
+                  />
+
+
+# Line break
+
+<br />

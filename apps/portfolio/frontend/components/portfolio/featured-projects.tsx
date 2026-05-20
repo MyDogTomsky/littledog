@@ -94,7 +94,7 @@ export function FeaturedProjects() {
                 ))}
               </div>
               <Button className="w-fit bg-cyan-600 hover:bg-cyan-700 text-white group/btn">
-                View Case Study
+                Read More
                 <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
               </Button>
             </CardContent>
@@ -118,7 +118,7 @@ export function FeaturedProjects() {
                 <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent" />
                 <div className="absolute inset-0 bg-card/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                   <Button size="sm" className="bg-cyan-600 hover:bg-cyan-700 text-white">
-                    View Case Study
+                    Read More
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </div>

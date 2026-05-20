@@ -12,28 +12,27 @@ export function Footer() {
             </span>
           </div>
 
-          <nav className="flex items-center gap-6 text-sm text-muted-foreground">
-            <a href="#architecture" className="hover:text-foreground transition-colors">Architecture</a>
+          <nav className="absolute left-1/2 -translate-x-1/2 flex items-center gap-6 text-sm text-muted-foreground">
+            <a href="#skills" className="hover:text-foreground transition-colors">Skills</a>
             <a href="#observability" className="hover:text-foreground transition-colors">Observability</a>
             <a href="#projects" className="hover:text-foreground transition-colors">Projects</a>
-            <a href="#contact" className="hover:text-foreground transition-colors">Contact</a>
+            {/*
+              <a href="#contact" className="hover:text-foreground transition-colors">Contact</a> */}  
           </nav>
 
           <div className="flex items-center gap-4">
-            <a href="#" className="text-muted-foreground hover:text-cyan-400 transition-colors" aria-label="GitHub">
+            <a href="https://github.com/MyDogTomsky"  target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-cyan-400 transition-colors" aria-label="GitHub">
               <Github className="h-4 w-4" />
             </a>
-            <a href="#" className="text-muted-foreground hover:text-cyan-400 transition-colors" aria-label="LinkedIn">
-              <Linkedin className="h-4 w-4" />
-            </a>
-            <a href="#" className="text-muted-foreground hover:text-cyan-400 transition-colors" aria-label="Email">
+            
+            <a href="mailto:youngandtom2@gmail.com" className="text-muted-foreground hover:text-cyan-400 transition-colors" aria-label="Email">
               <Mail className="h-4 w-4" />
             </a>
           </div>
         </div>
 
         <div className="mt-6 pt-6 border-t border-border text-center text-xs text-muted-foreground">
-          <p>Built with React, FastAPI & Tailwind CSS</p>
+          <p>Built with Next.js · FastAPI · Docker · AWS</p>
         </div>
       </div>
     </footer>
