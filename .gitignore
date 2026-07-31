@@ -1,2 +1,11 @@
 # information for me(admin)
 changed_arc.md
+
+# infra (infra/terraform/terraform.tfvars)
+*.tfvars
+
+
+# bitecode temporary file (apps/portfolio/backend/__pycache__/*)
+*.pyc
+__pycache__/
+

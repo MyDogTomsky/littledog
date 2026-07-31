@@ -57,7 +57,7 @@ export function FeaturedProjects() {
           <Badge variant="outline" className="mb-4 border-cyan-500/50 text-cyan-400 bg-cyan-500/10">
             Projects
           </Badge>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Featured Projects</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">[In Progress] Featured Projects</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             A collection of cloud infrastructure, backend development, and data analysis work
           </p>

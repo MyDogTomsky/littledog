@@ -29,7 +29,7 @@ export function HeroSection() {
               <div className="w-48 h-48 md:w-56 md:h-56 rounded-full bg-gradient-to-br from-cyan-500/20 to-cyan-500/5 border-2 border-cyan-500/30 flex items-center justify-center overflow-hidden">
                 <div className="w-44 h-44 md:w-52 md:h-52 rounded-full border border-border overflow-hidden">
                   <Image
-                    src="/soo-about-2.JPG"
+                    src="/train_img.jpeg"
                     alt="profile"
                     width={208}
                     height={208}

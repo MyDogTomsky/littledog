@@ -63,13 +63,13 @@ export function ObservabilitySection() {
             <Badge variant="outline" className="mb-4 border-cyan-500/50 text-cyan-400 bg-cyan-500/10">
               Observability
             </Badge>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">System Health</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">[In Progress] System Health </h2>
             <p className="text-muted-foreground max-w-xl mx-auto">
-              Production-style observability and API integration backed by FastAPI
+              Production-style observability and API integration backed by FastAPI, currently showing SAMPLE DATA
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-8 ">
             {/* Service Health */}
             <Card className="bg-card/50 border-border backdrop-blur-sm">
               <CardHeader className="pb-3">
@@ -78,31 +78,31 @@ export function ObservabilitySection() {
                     <Activity className="h-5 w-5 text-cyan-400" />
                     <CardTitle className="text-base font-semibold">Service Health</CardTitle>
                   </div>
-                  <code className="text-xs text-muted-foreground bg-muted px-2 py-0.5 rounded">GET /api/health</code>
+                  <code className="text-xs text-muted-foreground bg-muted px-2 py-0.5 rounded">GET /api/live · /api/health</code>
                 </div>
               </CardHeader>
               <CardContent className="space-y-2">
-                <div className="grid grid-cols-2 gap-3 text-sm">
+                <div className="grid grid-cols-2 gap-5 text-sm"> 
                   <StatusRow label="Liveness" value="Alive" endpoint="/api/live" status="ok" />
-                  <StatusRow label="Readiness" value="Ready" endpoint="/api/ready" status="ok" />
-                  <StatusRow label="Service" value="main-react-fastapi" />
-                  <StatusRow label="Uptime" value="4d 12h 33m" />
+                  <StatusRow label="Uptime" value="4d 12h 33m" status="ok" />
+                  <StatusRow label="Service" value="system-monitor-api" />
+                  <StatusRow label="Revision" value="abc123" />                  
                 </div>
-                <div className="text-xs text-muted-foreground mt-3 pt-3 border-t border-border space-y-0.5">
-                  <p><strong className="text-foreground/80">Live</strong> = application process check</p>
-                  <p><strong className="text-foreground/80">Ready</strong> = dependency readiness check</p>
-                </div>
-                <p className="text-xs text-muted-foreground mt-1.5">Last checked: 12 seconds ago</p>
+
+                <div className="text-xs text-muted-foreground mt-5 pt-5 border-t border-border space-y-2">
+                  <p><strong className="text-foreground/80">Live</strong> = backend process responding</p>
+                  <p><strong className="text-foreground/80">system-monitor-api</strong> reports uptime and revision.</p>
+                </div>                  
               </CardContent>
             </Card>
 
-            {/* Public Endpoint Checks */}
+            {/* Endpoint Checks: 3 Parts -> Frontend, Backend, Lambda funtion(API) */}
             <Card className="bg-card/50 border-border backdrop-blur-sm">
               <CardHeader className="pb-3">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <Globe className="h-5 w-5 text-cyan-400" />
-                    <CardTitle className="text-base font-semibold">Public Endpoint Checks</CardTitle>
+                    <CardTitle className="text-base font-semibold">Endpoint Checks</CardTitle>
                   </div>
                   <StatusBadge status={overallStatus} />
                 </div>
@@ -110,47 +110,56 @@ export function ObservabilitySection() {
               <CardContent>
                 <div className="space-y-2 text-sm font-mono">
                   <EndpointRow endpoint="/" label="Frontend" status={200} latency="45ms" />
-                  <EndpointRow endpoint="/api/live" label="API Live" status={200} latency="12ms" />
-                  <EndpointRow endpoint="/api/ready" label="API Ready" status={200} latency="18ms" />
-                  <EndpointRow endpoint="AWS API Gateway / Lambda" label="Weather Dependency" status={200} latency="124ms" external />
+                  <EndpointRow endpoint="/api/health" label="Backend API" status={200} latency="12ms" />
+                  <EndpointRow endpoint="AWS API Gateway, Lambda → Weather API" label="Weather Service" status={200} latency="124ms" external />
                 </div>
-                <p className="text-xs text-muted-foreground mt-4">
-                  HTTP availability checks across frontend, backend, and external dependency
-                </p>
+
+                <div className="text-xs text-muted-foreground mt-5 pt-5 border-t border-border space-y-2">
+                  <p><strong className="text-foreground/80">→</strong>&emsp;Checks availability, status code, and response latency</p>
+                </div>
+                {/*<p className="text-xs text-muted-foreground mt-5">*/}
+                  
+                  {/*Checks availability, status code, and response latency*/}
+                {/*</p>*/}
               </CardContent>
             </Card>
 
-            {/* Runtime Metrics */}
+            {/* Service Metrics */}
             <Card className="bg-card/50 border-border backdrop-blur-sm">
               <CardHeader className="pb-3">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <BarChart3 className="h-5 w-5 text-cyan-400" />
-                    <CardTitle className="text-base font-semibold">Runtime Metrics</CardTitle>
+                    <CardTitle className="text-base font-semibold">Service Metrics</CardTitle>
+                    {/* 
+                    https://nginx.org/en/docs/http/ngx_http_log_module.html
+                    */}
                   </div>
                   <code className="text-xs text-muted-foreground bg-muted px-2 py-0.5 rounded">GET /api/metrics/summary</code>
                 </div>
               </CardHeader>
               <CardContent>
-                <div className="grid grid-cols-2 gap-3 text-sm">
-                  <MetricRow label="Requests Observed" value="1,247" />
-                  <MetricRow label="Server Errors" value="1" valueClass="text-red-400" />
-                  <MetricRow label="App Success Rate" value="99.6%" valueClass="text-emerald-400" />
-                  <MetricRow label="Latest API Check" value="18ms" />
-                  <MetricRow label="Latest Weather Check" value="124ms" />
+                <div className="grid grid-cols-2 gap-5 text-sm">
+                  <MetricRow label="Requests" value="1,247" />
+                  <MetricRow label="Request Success Rate" value="1" valueClass="text-emerald-400" />
+                  <MetricRow label="Median Latency" value="99.6%" valueClass="text-red-400" />
+                  <MetricRow label="P95 Latency" value="18ms" />
                 </div>
-                <p className="text-xs text-muted-foreground mt-3">Traffic window: last 24h</p>
-                <p className="text-xs text-muted-foreground">Last updated: 30s ago</p>
+                <div className="text-xs text-muted-foreground mt-5 pt-5 border-t border-border space-y-2">
+                  <p><strong className="text-foreground/80">→</strong>&emsp;Traffic window: last 24h, Last updated: 30s ago</p>
+                </div>
+                {/*<p className="text-xs text-muted-foreground mt-3">Traffic window: last 24h</p>
+                <p className="text-xs text-muted-foreground">Last updated: 30s ago</p>*/}
               </CardContent>
             </Card>
 
-            {/* Log Intelligence */}
+            {/* Log Summary */}
             <Card className="bg-card/50 border-border backdrop-blur-sm">
               <CardHeader className="pb-3">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <FileSearch className="h-5 w-5 text-cyan-400" />
-                    <CardTitle className="text-base font-semibold">Log Intelligence</CardTitle>
+                    <CardTitle className="text-base font-semibold">Nginx Log Summary</CardTitle>
                   </div>
                   <code className="text-xs text-muted-foreground bg-muted px-2 py-0.5 rounded">GET /api/logs/summary</code>
                 </div>
@@ -186,7 +195,7 @@ export function ObservabilitySection() {
             <Badge variant="outline" className="mb-4 border-cyan-500/50 text-cyan-400 bg-cyan-500/10">
               Weather API
             </Badge>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Real-time Weather</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">[In Progress] Real-time Weather</h2>
             <p className="text-muted-foreground max-w-xl mx-auto">
               Real-time weather data via AWS API Gateway and Lambda
             </p>

@@ -32,7 +32,7 @@ export function Footer() {
         </div>
 
         <div className="mt-6 pt-6 border-t border-border text-center text-xs text-muted-foreground">
-          <p>Built with Next.js · FastAPI · Docker · AWS</p>
+          <p>Built with Next.js · FastAPI · Docker · AWS · Terraform </p>
         </div>
       </div>
     </footer>

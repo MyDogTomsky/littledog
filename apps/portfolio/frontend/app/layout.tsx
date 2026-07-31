@@ -7,7 +7,7 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'Cloud Engineer Portfolio | Infrastructure & DevOps',
+  title: 'Engineering Portfolio | Systems, Infrastructure & Data',
   description: 'Systems engineer portfolio showcasing cloud infrastructure, DevOps automation, and production-grade deployments',
   generator: 'v0.app',
   icons: {
