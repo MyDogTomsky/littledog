@@ -17,6 +17,8 @@ const heroProject = {
 const secondaryProjects = [
   {
     title: "Legacy Flask Portfolio",
+    linkType: "live",
+    href: "https://littledogtomsky.com",
     description: "Original Flask/Bootstrap portfolio with Jenkins CI/CD.",
     status: "Done",
     statusColor: "emerald",
@@ -27,6 +29,7 @@ const secondaryProjects = [
   {
     title: "Python Mobile App",
     description: "Python app with SMTP email and image search.",
+    linkType: "github",
     status: "Done",
     statusColor: "emerald",
     icon: <Mail className="h-5 w-5" />,
@@ -36,6 +39,7 @@ const secondaryProjects = [
   {
     title: "SQL/Data Analysis",
     description: "Data analysis with complex SQL queries and reporting.",
+    linkType: "github",
     status: "Done",
     statusColor: "emerald",
     icon: <BarChart className="h-5 w-5" />,
@@ -118,7 +122,8 @@ export function FeaturedProjects() {
                 <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent" />
                 <div className="absolute inset-0 bg-card/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                   <Button size="sm" className="bg-cyan-600 hover:bg-cyan-700 text-white">
-                    Read More
+                    {/*Read More*/}
+                    {project.linkType === "github" ? "View on GitHub" : "View Live Project"}
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </div>

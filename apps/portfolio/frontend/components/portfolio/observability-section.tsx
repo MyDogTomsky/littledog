@@ -63,10 +63,9 @@ export function ObservabilitySection() {
             <Badge variant="outline" className="mb-4 border-cyan-500/50 text-cyan-400 bg-cyan-500/10">
               Observability
             </Badge>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">[In Progress] System Health </h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4"> System Health </h2>
             <p className="text-muted-foreground max-w-xl mx-auto">
-              Production-style observability and API integration backed by FastAPI, currently showing SAMPLE DATA
-            </p>
+              Monitoring Service Health, Endpoint Availability, <br /> Request Performance, and Nginx logs.</p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 ">
@@ -82,7 +81,7 @@ export function ObservabilitySection() {
                 </div>
               </CardHeader>
               <CardContent className="space-y-2">
-                <div className="grid grid-cols-2 gap-5 text-sm"> 
+                <div className="grid grid-cols-2 gap-x-5 gap-y-10 text-sm"> 
                   <StatusRow label="Liveness" value="Alive" endpoint="/api/live" status="ok" />
                   <StatusRow label="Uptime" value="4d 12h 33m" status="ok" />
                   <StatusRow label="Service" value="system-monitor-api" />
@@ -135,14 +134,14 @@ export function ObservabilitySection() {
                     https://nginx.org/en/docs/http/ngx_http_log_module.html
                     */}
                   </div>
-                  <code className="text-xs text-muted-foreground bg-muted px-2 py-0.5 rounded">GET /api/metrics/summary</code>
+                  <code className="text-xs text-muted-foreground bg-muted px-2 py-0.5 rounded">GET /api/metrics</code>
                 </div>
               </CardHeader>
               <CardContent>
-                <div className="grid grid-cols-2 gap-5 text-sm">
+                <div className="grid grid-cols-2 gap-x-5 gap-y-10 text-sm">
                   <MetricRow label="Requests" value="1,247" />
-                  <MetricRow label="Request Success Rate" value="1" valueClass="text-emerald-400" />
-                  <MetricRow label="Median Latency" value="99.6%" valueClass="text-red-400" />
+                  <MetricRow label="Request Success Rate" value="99%" valueClass="text-emerald-400" />
+                  <MetricRow label="Median Latency" value="-ms" />
                   <MetricRow label="P95 Latency" value="18ms" />
                 </div>
                 <div className="text-xs text-muted-foreground mt-5 pt-5 border-t border-border space-y-2">
@@ -165,24 +164,23 @@ export function ObservabilitySection() {
                 </div>
               </CardHeader>
               <CardContent>
-                <div className="grid grid-cols-2 gap-3 text-sm">
-                  <MetricRow label="Log Window" value="Last 1,000 lines" />
-                  <MetricRow label="Recent 4xx Responses" value="12" valueClass="text-amber-400" />
-                  <MetricRow label="Recent 5xx Responses" value="1" valueClass="text-red-400" />
-                  <MetricRow label="Error Events" value="0" />
+                <div className="grid grid-cols-2 gap-x-5 gap-y-10 text-sm">
+                  <MetricRow label="Log Lines Analysed" value="Last 1,000 lines" />
+                  <MetricRow label="4xx Responses" value="12" valueClass="text-amber-400" />
+                  <MetricRow label="5xx Responses" value="1" valueClass="text-red-400" />
                   <MetricRow label="Suspicious Attempts" value="8" valueClass="text-amber-400" />
-                  <MetricRow label="Last Checked" value="1 minute ago" />
+                  
                 </div>
-                <p className="text-xs text-muted-foreground mt-3 border-t border-border pt-3">
-                  Safe summary of access/error logs. No raw logs, IPs, or sensitive data exposed.
-                </p>
+                <div className="text-xs text-muted-foreground mt-5 pt-5 border-t border-border space-y-2">
+                  <p><strong className="text-foreground/80">→</strong>&emsp;Summary of Nginx access and error logs</p>
+                </div>
               </CardContent>
             </Card>
           </div>
 
-          <p className="text-center text-xs text-muted-foreground mt-8">
+          {/*<p className="text-center text-xs text-muted-foreground mt-8">
             Values are realistic placeholders designed for live FastAPI integration
-          </p>
+          </p>*/}
         </div>  
       </section>
 
