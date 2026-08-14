@@ -6,45 +6,47 @@ import { Button } from "@/components/ui/button"
 import { ArrowRight, Server, Mail, BarChart } from "lucide-react"
 
 const heroProject = {
-  title: "React/FastAPI Cloud Portfolio",
-  description: "Modern portfolio rebuild with React frontend, FastAPI backend, and production-style observability.",
-  status: "In Progress",
+  title: "React/FastAPI Web App",
+  description: "Building a new React/FastAPI web application with automated CI/CD and improved cloud infrastructure alongside the existing Flask app.",
+  status: "Live",
   statusColor: "cyan",
   image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=400&fit=crop",
-  stack: ["React", "FastAPI", "Docker Compose", "Nginx", "CloudFront", "GitHub Actions"],
+  stack: ["AWS", "Nginx", "Terraform", "Python", "FastAPI", "React", "Docker", "GitHub Actions"],
 }
 
 const secondaryProjects = [
   {
-    title: "Legacy Flask Portfolio",
-    linkType: "live",
+    title: "Legacy Web App",
+    linkType: "live",                   // {project.linkType === "github" ? "View on GitHub" : "View Live Project"}
     href: "https://littledogtomsky.com",
-    description: "Original Flask/Bootstrap portfolio with Jenkins CI/CD.",
+    description: "Flask web App Deployed & Operated on AWS with Nginx, Terraform, Docker and Jenkins CI/CD.",
     status: "Done",
     statusColor: "emerald",
     icon: <Server className="h-5 w-5" />,
-    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&h=200&fit=crop",
-    stack: ["Flask", "Bootstrap", "EC2", "Jenkins"],
+    image: "/legacy_website_img.jpg",  // compute version image -> *"legacy_background_img.jpeg"
+    stack: ["AWS", "Nginx", "Terraform", "Python", "Flask", "Bootstrap", "Docker", "Jenkins"],
   },
   {
     title: "Python Mobile App",
-    description: "Python app with SMTP email and image search.",
     linkType: "github",
+    href: "https://github.com/MyDogTomsky/mobileApp",
+    description: "Python/Kivy Food recommendation App with Ingredient Filtering, Image Search, SQLite storage, and SMTP feedback.",
     status: "Done",
     statusColor: "emerald",
     icon: <Mail className="h-5 w-5" />,
-    image: "https://images.unsplash.com/photo-1526498460520-4c246339dccb?w=400&h=200&fit=crop",
-    stack: ["Python", "SMTP", "Image Search"],
+    image: "/python_mobile_app_img.jpg",
+    stack: ["Python", "Kivy", "SMTP", "SQLite", "Image Search API"],
   },
   {
-    title: "SQL/Data Analysis",
-    description: "Data analysis with complex SQL queries and reporting.",
+    title: "London Bike Data Analysis",
     linkType: "github",
+    href: "https://github.com/MyDogTomsky/MySQL",
+    description: "London bike-sharing data analysis using SQL to explore demand patterns across time, weather, and seasons.",
     status: "Done",
     statusColor: "emerald",
     icon: <BarChart className="h-5 w-5" />,
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=200&fit=crop",
-    stack: ["SQL", "Data Validation", "Reporting"],
+    image: "/sql_bike_img.jpg",
+    stack: ["MySQL", "Data Analysis", "Joins", "Views", "Subqueries"],
   },
 ]
 
@@ -61,10 +63,12 @@ export function FeaturedProjects() {
           <Badge variant="outline" className="mb-4 border-cyan-500/50 text-cyan-400 bg-cyan-500/10">
             Projects
           </Badge>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">[In Progress] Featured Projects</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Featured Projects</h2>
+          
+          {/*<p className="text-muted-foreground max-w-2xl mx-auto">
             A collection of cloud infrastructure, backend development, and data analysis work
-          </p>
+          </p>*/}
+
         </div>
 
         {/* Hero Project - Full Width */}
@@ -121,10 +125,19 @@ export function FeaturedProjects() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent" />
                 <div className="absolute inset-0 bg-card/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                  <Button size="sm" className="bg-cyan-600 hover:bg-cyan-700 text-white">
-                    {/*Read More*/}
-                    {project.linkType === "github" ? "View on GitHub" : "View Live Project"}
-                    <ArrowRight className="ml-2 h-4 w-4" />
+                  <Button 
+                    asChild
+                    size="sm" 
+                    className="bg-cyan-600 hover:bg-cyan-700 text-white"
+                  >
+                    <a
+                      href={project.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >     
+                      {project.linkType === "github" ? "View on GitHub" : "View Live Project"}
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </a> 
                   </Button>
                 </div>
               </div>
